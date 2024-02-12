@@ -1,6 +1,10 @@
 
 const controle = document.querySelectorAll("[data-controle]")
 const estatisticas = document.querySelectorAll("[data-estatistica]")
+const robotron = document.querySelector("#robotron")
+
+const coresRobotron = ["robotron-amarelo" , "robotron-azul" , "robotron-branco" , "robotron-preto" , "robotron-rosa" , "robotron-vermelho"]
+
 const pecas = {
     "bracos": {
         "forca": 29,
@@ -61,4 +65,27 @@ function atualizaEstatisticas(peca) {
     }
     )
 }
+
+/*function mudaCorRobotron() {
+    robotron.addEventListener("click", ()=> {
+        robotron.setAttribute("src", "img/robotron-amarelo.png")
+    })
+}
+*/
+let coresRobotronSequencia = 0
+
+function mudaCorRobotron() {
+    robotron.addEventListener("click", ()=> {
+        if(coresRobotronSequencia >= 0 && coresRobotronSequencia <= 5) {
+            robotron.setAttribute("src", `img/${coresRobotron[coresRobotronSequencia]}.png`)
+            coresRobotronSequencia += 1
+        } else {
+            coresRobotronSequencia = 0
+        }
+        console.log(coresRobotronSequencia)
+    })
+    
+}
+
+mudaCorRobotron()
 
